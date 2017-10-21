@@ -1,0 +1,6 @@
+Resources to reference during development
+-- Tinder API Documentation (unofficial):
+https://gist.github.com/rtt/10403467
+-- Obtaining Facebook Access Token (unofficial);
+need to verify if out-of-date or not:
+https://gist.github.com/taseppa/66fc7239c66ef285ecb28b400b556938
