@@ -1,10 +1,24 @@
 Resources to reference during development
+
 -- Tinder API Documentation (unofficial):
 https://gist.github.com/rtt/10403467
--- Obtaining Facebook Access Token & Id (unofficial);
-Facebook token mentioned as having 2hr lifespan & Tinder's is indefinite
-https://gist.github.com/taseppa/66fc7239c66ef285ecb28b400b556938 (background)
-https://taseppa.github.io/tokenparser.github.io/ (extract from response)
-https://findmyfbid.com/ (gets Id from Profile URL)
--- Info about Facebook/Tinder tokens' expiration:
+
+-- Facebook token mentioned as having 2hr lifespan & Tinder's is indefinite
+https://gist.github.com/taseppa/66fc7239c66ef285ecb28b400b556938
+More info about Facebook/Tinder tokens' expiration:
 https://github.com/alkawryk/tinderjs/issues/21
+
+-- To obtain Facebook token:
+1. Log out
+2. Click link
+3. Log in
+4. Press confirm
+5. Extract from response using parser:
+https://taseppa.github.io/tokenparser.github.io/
+
+-- Get Facebook Id from Profile URL: 
+https://findmyfbid.com/
+
+-- Obtaining Tinder access token from response (in variable token) 
+by pasting in Facebook Token & Id (token with quotes, id without quotes):
+curl -X POST https://api.gotinder.com/auth --data '{"facebook_token": "<fb_token>", "facebook_id": <fb_id>}' -H "user-agent: Tinder/4.0.9 (iPhone; iOS 8.0.2; Scale/2.00)" -H "content-type: application/json"
