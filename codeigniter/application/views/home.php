@@ -22,9 +22,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div id="container">
 		<div id="button">
+		<?php
+            echo $facebookId.$facebookToken.$tinderToken;
+		?>
+		</div>
+		<div id="button">
 			<button type="button">Start TinderLiker</button>
 		</div>
 		<div id="logger">
+		<?php
+            echo $message;
+		?>
 		</div>
 	</div>
 </body>

@@ -20,6 +20,13 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$this->load->model('token');
+		$data['facebookId'] = $this->token->get_facebook_id();
+		$data['facebookToken'] = $this->token->get_facebook_token();
+		$data['tinderToken'] = $this->token->get_tinder_token();
+		$data['message'] = 'Starting bot...';
+		$this->load->view('home', $data);
+		// need to use Javascript to update page without refresh...
+		$data['message'] += '\r\nStopping bot...';
 	}
 }
