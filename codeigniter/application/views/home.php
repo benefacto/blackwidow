@@ -23,7 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="container">
 		<div id="button">
 		<?php
-            echo $facebookId.$facebookToken.$tinderToken;
+            echo "Facebook Id: $facebookId<br>" . 
+            "Facebook Token: " . substr($facebookToken,0,25) . "...<br>" . 
+            "Tinder Token: " . $tinderToken;
 		?>
 		</div>
 		<div id="button">
