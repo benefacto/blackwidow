@@ -31,11 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="button">
 			<button type="button">Start TinderLiker</button>
 		</div>
-		<div id="logger">
-		<?php
-            echo $message;
-		?>
-		</div>
 	</div>
 </body>
 </html>
