@@ -33,7 +33,10 @@ class Home extends CI_Controller {
 		return $data;
 	}
 	
-	public function start_liker() {}
+	public function start_liker()
+	{
+		$this->load->model('liker');
+	}
 	
 	public function get_recommendations() {}
 }
