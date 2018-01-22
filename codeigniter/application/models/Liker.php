@@ -3,7 +3,7 @@
 
 class Liker extends CI_Model {
 
-	public Liker($tinderToken) {}
+	public Liker($headers) {}
 	
 	public function start($recResults)
 	{
@@ -16,5 +16,6 @@ class Liker extends CI_Model {
 	private like_user($userId) 
 	{
 		// likes a provided Tinder user
+		// e.g. curl https://api.gotinder.com/{like|pass}/{_id}
 	}
 }

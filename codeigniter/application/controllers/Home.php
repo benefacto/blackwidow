@@ -21,22 +21,36 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('token');
+		$this->load->model('headers');
 		$authData = get_auth_data();
-		$this->load->view('home', $data);
+		$headers = get_tinder_headers($authData['tinderToken']);
+		$recs = get_recommendations($headers);
+		start_liker($headers, $recs);
 	}
 	
-	public function get_auth_data()
+	private function get_auth_data()
 	{
 		$data['facebookId'] = $this->token->get_facebook_id();
 		$data['facebookToken'] = $this->token->get_facebook_token();
 		$data['tinderToken'] = $this->token->get_tinder_token();
+		$this->load->view('home', $data);
 		return $data;
 	}
 	
-	public function start_liker()
+	private function get_tinder_headers($tinderToken)
 	{
-		$this->load->model('liker');
+		return $headers = $this->headers->get_json($tinderToken);
 	}
 	
-	public function get_recommendations() {}
+	private function get_recommendations($headers)
+	{
+		// e.g. curl https://api.gotinder.com/user/recs
+		return $recs;
+	}
+	
+	private function start_liker($headers, $recs)
+	{
+		$this->load->model('liker', $headers);
+		$this->liker->start($recs);
+	}
 }
