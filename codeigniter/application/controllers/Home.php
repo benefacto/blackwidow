@@ -15,6 +15,7 @@ class Home extends CI_Controller {
 	
 	private function get_auth_data()
 	{
+		log_message("Reading auth data from files...");
 		$data['facebookId'] = $this->token->get_facebook_id();
 		$data['facebookToken'] = $this->token->get_facebook_token();
 		$data['tinderToken'] = $this->token->get_tinder_token();
@@ -24,6 +25,7 @@ class Home extends CI_Controller {
 	
 	private function get_tinder_headers($tinderToken)
 	{
+		log_message("Obtaining Tinder headers...");
 		return $headers = $this->headers->get_json($tinderToken);
 	}
 	
@@ -31,12 +33,14 @@ class Home extends CI_Controller {
 	{
 		// gets Tinder recommendations after a random sleep interval
 		// e.g. curl https://api.gotinder.com/user/recs
+		log_message("Obtaining Tinder recommendations...");
 		return $recs;
 	}
 	
 	private function start_liker($headers, $recs)
 	{
 		$this->load->model('liker');
+		log_message("Starting Tinder Liker...");
 		$this->liker->start($headers, $recs);
 	}
 }

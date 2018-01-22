@@ -5,6 +5,7 @@ class Liker extends CI_Model {
 
 	public function start($headers, $recResults)
 	{
+		log_message("Liking recommendations...");
 		foreach($recResults as $result) 
 		{
 			like_user($headers, $result.$id);
@@ -15,5 +16,6 @@ class Liker extends CI_Model {
 	{
 		// likes a provided Tinder user, with some random sleep interval
 		// e.g. curl https://api.gotinder.com/{like|pass}/{_id}
+		log_message("Liking user with id {$userId}...");
 	}
 }
