@@ -3,19 +3,17 @@
 
 class Liker extends CI_Model {
 
-	public Liker($headers) {}
-	
-	public function start($recResults)
+	public function start($headers, $recResults)
 	{
 		foreach($recResults as $result) 
 		{
-			like_user($result.$id);
+			like_user($headers, $result.$id);
 		}
 	}
 	
-	private like_user($userId) 
+	private like_user($headers, $userId) 
 	{
-		// likes a provided Tinder user
+		// likes a provided Tinder user, with some random sleep interval
 		// e.g. curl https://api.gotinder.com/{like|pass}/{_id}
 	}
 }
